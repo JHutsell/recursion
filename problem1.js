@@ -5,3 +5,22 @@ function factorial(num) {
 
     return num * factorial(num - 1);
 }
+
+// Check all values in an array
+
+function all(array, callback) {
+    let copy;
+    copy = copy || array.slice();
+
+    if (copy.length === 0) return true;
+
+    let poppedElement = copy.pop();
+    let result = callback(poppedElement);
+
+    if (result === false) return false;
+    else {
+        all(copy, callback)
+    }
+
+    return result;
+}
