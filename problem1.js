@@ -24,3 +24,15 @@ function all(array, callback) {
 
     return result;
 }
+
+// Product of an Array
+
+function productOfArray(array) {
+    let result;
+    if (array.length === 0) return null;
+    if (array.length === 1) return array[0]; 
+
+    let poppedElement = array.pop();
+    result = poppedElement * productOfArray(array);
+    return result;
+}
