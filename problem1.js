@@ -28,11 +28,23 @@ function all(array, callback) {
 // Product of an Array
 
 function productOfArray(array) {
-    let result;
     if (array.length === 0) return null;
     if (array.length === 1) return array[0]; 
 
     let poppedElement = array.pop();
-    result = poppedElement * productOfArray(array);
-    return result;
+    return poppedElement * productOfArray(array);
+}
+
+// Search JS Object
+
+function contains(object, target) {
+
+    for(let key in object) {
+        if (typeof object[key] === 'object') {
+            return contains(object[key],target);
+        }
+
+        if (object[key] === target) return true
+    }
+    return false
 }
